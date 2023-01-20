@@ -1,0 +1,34 @@
+<button [disabled]="!allowNewServer" (click)="onGetServerConnectionStatus()">Click Me</button>
+<p>{{ serverConnectionStatus }}</p>
+
+<input type="text" (input)="onUpdateServerName($event)">
+
+<!-- 双向绑定 -->
+<input type="text" [(ngModel)]="serverName">
+<div>{{ serverName }}</div>
+
+<!-- 单向绑定 -->
+<input type="text" [ngModel]="username" name="username">
+<p>{{ username }}</p>
+
+
+<div *ngIf="allowNewServer">dddd</div>
+
+<ul *ngFor="let item of userList">
+  <li>{{item}}</li>
+</ul>
+
+<div *ngIf="serverCreated">
+  Server was created
+</div>
+<!-- if else  template -->
+<!-- <ng-template [ngTemplateOutlet]="noServer" [ngOutletContext]="noServer"></ng-template> -->
+
+<div [ngStyle]="{backgroundColor: 'red'}">hello</div>
+<div [ngStyle]="{'background-color': 'blue'}">world</div>
+<div [ngStyle]="{'background-color': getColor()}">Hi!</div>
+
+<div ngClass="blue"></div>
+
+
+<button (click)="onAddClick()">Add Server</button>
