@@ -5,3 +5,7 @@
 <div>{{ dateStr | date: 'yyyy-MM-dd HH:mm:ss' }}</div>
 <div> {{ serverName | uppercase | lowercase }}</div>
 <div>{{ serverName | test}}</div>
+
+<button nz-button nzType="primary">Primary</button>
+
+<nz-time-picker [(ngModel)]="time" [nzDefaultOpenValue]="defaultOpenValue"></nz-time-picker>

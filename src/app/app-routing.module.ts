@@ -2,7 +2,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { ServerComponent } from './server/server.component';
+import { ServerComponent } from './features/server/server.component';
 
 // 声明路由
 const routes: Routes = [
