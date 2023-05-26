@@ -21,6 +21,21 @@
 <div *ngIf="serverCreated">
   Server was created
 </div>
+
+
+<div *ngIf="serverCreated;then thenTemplate else elseTemplate"></div>
+
+<!-- https://juejin.cn/post/7121919432288370724 -->
+
+<ng-template #thenTemplate></ng-template>
+<ng-template #elseTemplate [ngOutletContext]="context"></ng-template>
+
+
+<!-- *ngIf="serverCreated;else noServer" -->
+<!-- <div *ngIf="serverCreated;else noServer1"></div>
+
+<ng-template [ngTemplateOutlet]="noServer" [ngOutletContext]="noServer1"></ng-template> -->
+
 <!-- if else  template -->
 <!-- <ng-template [ngTemplateOutlet]="noServer" [ngOutletContext]="noServer"></ng-template> -->
 
