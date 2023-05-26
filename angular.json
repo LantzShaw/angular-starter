@@ -94,6 +94,136 @@
           }
         }
       }
+    },
+    "angular-app": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "less"
+        }
+      },
+      "root": "projects/angular-app",
+      "sourceRoot": "projects/angular-app/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/angular-app",
+            "index": "projects/angular-app/src/index.html",
+            "main": "projects/angular-app/src/main.ts",
+            "polyfills": [
+              "zone.js"
+            ],
+            "tsConfig": "projects/angular-app/tsconfig.app.json",
+            "inlineStyleLanguage": "less",
+            "assets": [
+              "projects/angular-app/src/favicon.ico",
+              "projects/angular-app/src/assets"
+            ],
+            "styles": [
+              "projects/angular-app/src/styles.less"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "angular-app:build:production"
+            },
+            "development": {
+              "browserTarget": "angular-app:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "angular-app:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ],
+            "tsConfig": "projects/angular-app/tsconfig.spec.json",
+            "inlineStyleLanguage": "less",
+            "assets": [
+              "projects/angular-app/src/favicon.ico",
+              "projects/angular-app/src/assets"
+            ],
+            "styles": [
+              "projects/angular-app/src/styles.less"
+            ],
+            "scripts": []
+          }
+        }
+      }
+    },
+    "litecase-design": {
+      "projectType": "library",
+      "root": "projects/litecase-design",
+      "sourceRoot": "projects/litecase-design/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/litecase-design/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/litecase-design/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/litecase-design/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "tsConfig": "projects/litecase-design/tsconfig.spec.json",
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ]
+          }
+        }
+      }
     }
   },
   "cli": {
