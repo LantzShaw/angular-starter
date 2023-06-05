@@ -35,7 +35,6 @@ export class ServerComponent implements OnInit, OnDestroy {
   ngOnChanges(): void {
     console.log('changes');
   }
-
   ngOnInit(): void {
     console.log('initialize');
   }

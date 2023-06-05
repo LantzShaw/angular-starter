@@ -17,7 +17,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
   // ],
 })
 export class ServersComponent implements OnInit, OnDestroy {
-  // 为什么这里用public
+  // 为什么这里用public、private
   constructor(public http: HttpClient) {}
 
   ngOnChanges(changes: SimpleChanges): void {}

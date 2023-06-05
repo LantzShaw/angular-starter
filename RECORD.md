@@ -36,6 +36,8 @@ json -f tsconfig.json -I -e "this.compilerOptions.paths['@env'] = ['src/environm
 
 1. https://github.com/mathisGarberg/angular-folder-structure
 
+2. https://github.com/ikismail/Angular-ShoppingCart
+
 core
 features | modules
 shared
