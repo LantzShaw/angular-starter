@@ -26,6 +26,9 @@ export class ServerComponent implements OnInit, OnDestroy {
   @Output()
   onAdd = new EventEmitter();
 
+  @Output()
+  onClick = new EventEmitter();
+
   constructor() {
     setTimeout(() => {
       this.allowNewServer = true;
@@ -35,6 +38,7 @@ export class ServerComponent implements OnInit, OnDestroy {
   ngOnChanges(): void {
     console.log('changes');
   }
+
   ngOnInit(): void {
     console.log('initialize');
   }
@@ -45,6 +49,10 @@ export class ServerComponent implements OnInit, OnDestroy {
 
   onAddClick() {
     this.onAdd.emit('litecase');
+  }
+
+  onClickHandler() {
+    this.onClick.emit('click me');
   }
 
   onGetServerConnectionStatus(): void {

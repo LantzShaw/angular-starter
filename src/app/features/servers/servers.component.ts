@@ -37,6 +37,27 @@ export class ServersComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {}
 
+  getData() {
+    const api = 'http://localhost:8083';
+
+    const httpOptions = {
+      params: {},
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+      }),
+    };
+
+    this.http.get(api, httpOptions).subscribe((response) => {
+      console.log(response);
+    });
+
+    this.http
+      .post(api, { username: 'Lantz', password: '123456' }, httpOptions)
+      .subscribe((response) => {
+        console.log(response);
+      });
+  }
+
   serverName: string = 'Server Name';
 
   dateStr: Date = new Date();
